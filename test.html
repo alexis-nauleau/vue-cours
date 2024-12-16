@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+//         const p =new Promise((resolve,reject)=>{
+//     reject(3)
+// })
+function wait(duration){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(duration)
+        },duration)
+    })
+}
+function waitAndFail(duration){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject(duration)
+        },duration)
+    })
+}
+
+wait(2000)
+    .then(()=>{
+        console.log(" jai attendu 2 sec")
+        return wait(1000)
+    })
+    .then(()=>{
+        
+        console.log(" jai attendu 1 sec")
+    })
+// p
+//     .then((n)=>{
+//         console.log("tenue",n)
+//         return 5
+//     })
+//     .then((n=>{
+//         console.log("tenu-vis:",n)
+//     }))
+//     .catch((e)=>{
+//         console.log("non-tenue",e)
+//     })
+//     .finally(()=>console.log("ahah"))
+    </script>
+</head>
+<body>
+    <h2>bonjour</h2>
+    
+</body>
+</html>
